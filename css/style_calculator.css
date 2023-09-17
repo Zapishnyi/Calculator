@@ -1,0 +1,60 @@
+@media (hover:hover) {
+    td:hover {
+        background-color: rgb(240, 240, 240);
+        transition: 0.2s;
+    }
+}
+
+body,
+html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.Calculator_body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-style: solid;
+    border-color: black;
+    border-radius: 5px;
+}
+
+.screen {
+    padding: 5px;
+    font-size: 20px;
+    width: 230px;
+    height: 158px;
+    display: flex;
+    margin: 10px;
+    border-style: solid;
+    border-radius: 3px;
+    overflow-y: auto;
+    overflow-x: clip;
+    word-break: break-all;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+table {
+    display: flex;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+td {
+    height: 55px;
+    width: 55px;
+    cursor: pointer;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    user-select: none;
+}
+
+table td:active {
+    background-color: rgb(54, 54, 54);
+    transition: 0.1s;
+
+
+}
