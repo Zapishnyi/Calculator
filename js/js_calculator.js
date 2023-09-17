@@ -3,9 +3,9 @@ screen.textContent = "";
 sum_check_item = 0;
 let buttons = document.querySelectorAll("td");
 
+// calculation function
 function calculation(items_array, sum_check_item) {
   // Square root calculation
-  console.log(items_array);
   let etalon = sum_check_item;
   items_array.forEach(function (items_array_item, index) {
     if (items_array_item === "√") {
@@ -56,7 +56,6 @@ function calculation(items_array, sum_check_item) {
           sum_check_item++;
           break;
       }
-      console.log(items_array);
     }
   });
   // Multiply
@@ -65,7 +64,6 @@ function calculation(items_array, sum_check_item) {
       temp_item = items_array[index - 1] * items_array[index + 1];
       items_array.splice(index - 1, 3, parseFloat(temp_item));
       sum_check_item++;
-      console.log(items_array);
     }
   });
   // Divide
@@ -74,7 +72,6 @@ function calculation(items_array, sum_check_item) {
       temp_item = items_array[index - 1] / items_array[index + 1];
       items_array.splice(index - 1, 3, parseFloat(temp_item));
       sum_check_item++;
-      console.log(items_array);
     }
   });
   // Summ
@@ -83,7 +80,6 @@ function calculation(items_array, sum_check_item) {
       temp_item = items_array[index - 1] + items_array[index + 1];
       items_array.splice(index - 1, 3, parseFloat(temp_item));
       sum_check_item++;
-      console.log(items_array);
     }
   });
   // Subtraction
@@ -92,11 +88,8 @@ function calculation(items_array, sum_check_item) {
       temp_item = items_array[index - 1] - items_array[index + 1];
       items_array.splice(index - 1, 3, parseFloat(temp_item));
       sum_check_item++;
-      console.log(items_array);
     }
   });
-  console.log("etalon", etalon);
-  console.log("sum_check", sum_check_item);
   // check, is calculated line contain only one item? is this  item a figure?
   items_array.length === 1 && isNaN(items_array[0]) === false
     ? // if yes - publish result on the screen
@@ -126,7 +119,6 @@ buttons.forEach(function (btn_item) {
           items_array = document
             .querySelector(".screen")
             .textContent.split(/\b/);
-          console.log(items_array);
           items_in_array = items_array.length - 1;
           // Check and combine figures, example - '4'+','+'5'=4,5 and tranform all string figures to to float
           for (let counter = 0; counter <= items_in_array; counter++) {
@@ -152,19 +144,12 @@ buttons.forEach(function (btn_item) {
             }
           }
           // convert positive numbers to negative where applicapable
-          console.log("initial array", items_array);
           items_array.forEach(function (items_array_item, index) {
             if (items_array_item === "-") {
-              console.log(items_array[index - 1]);
               if (index === 0 || isNaN(items_array[index - 1]) === true) {
-                console.log("NaN");
-                console.log(items_array);
                 items_array.splice(index, 2, -items_array[index + 1]);
-                console.log(items_array);
               } else {
-                console.log(items_array);
                 items_array.splice(index, 2, "+", -items_array[index + 1]);
-                console.log(items_array);
               }
             }
           });
