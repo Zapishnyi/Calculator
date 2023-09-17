@@ -93,7 +93,7 @@ function calculation(items_array, sum_check_item) {
   // check, is calculated line contain only one item? is this  item a figure?
   items_array.length === 1 && isNaN(items_array[0]) === false
     ? // if yes - publish result on the screen
-      (screen.textContent += "=" + items_array[0])
+      (screen.textContent += "=" + parseFloat(items_array[0].toPrecision(10)))
     : // if not - check, is any math operation  event occure during last calculation round
     etalon === sum_check_item
     ? // if not - publish error message
@@ -164,7 +164,8 @@ buttons.forEach(function (btn_item) {
 
           // Result output, or additional calculation cycle initiate
           items_array.length === 1 && isNaN(items_array[0]) === false
-            ? (screen.textContent += "=" + items_array[0])
+            ? (screen.textContent +=
+                "=" + parseFloat(items_array[0].toPrecision(10)))
             : calculation(items_array, sum_check_item);
         }
         break;
